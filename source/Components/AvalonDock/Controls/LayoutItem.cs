@@ -308,7 +308,7 @@ namespace AvalonDock.Controls
 
 		private void Rename()
 		{
-			string inputRead = new InputBox("",  20).ShowDialog();
+			string inputRead = new InputBox(this.Title,  20).ShowDialog();
 
 			if (inputRead != "")
 			{

@@ -1,4 +1,5 @@
 using AvalonDock.Properties;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -67,25 +68,29 @@ namespace AvalonDock.Controls
 
 		private void windowdef()// window building - check only for window size
 		{
-			_box.Height = 140;// Box Height
+			_box.Height = 165;// Box Height
 			_box.Width = 300;// Box Width
 			_box.Title = Resources.Document_Rename;
+			_box.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 			_box.Content = _sp1;
 			_box.Closing += Box_Closing;
 			_box.WindowStyle = WindowStyle.ToolWindow;
 
 			
-			TextBlock content = new TextBlock();
-			content.TextWrapping = TextWrapping.Wrap;
-			content.Background = null;
-			content.HorizontalAlignment = HorizontalAlignment.Center;
-			content.FontSize = _fontSize;
-			_sp1.Children.Add(content);
+			//TextBlock content = new TextBlock();
+			//content.TextWrapping = TextWrapping.Wrap;
+			//content.Background = null;
+			//content.HorizontalAlignment = HorizontalAlignment.Center;
+			//content.FontSize = _fontSize;
+			//content.Text = _boxcontent;
+			//_sp1.Children.Add(content);
 
 			_input.FontSize = _fontSize;
 			_input.HorizontalAlignment = HorizontalAlignment.Center;
 			_input.MinWidth = 200;
+			_input.Text = _boxcontent;
 			_input.MouseEnter += input_MouseDown;
+			_input.Margin = new Thickness(0, 20, 0, 5);
 			_sp1.Children.Add(_input);
 
 
@@ -93,16 +98,18 @@ namespace AvalonDock.Controls
 			_sp2.HorizontalAlignment = HorizontalAlignment.Center;
 			_sp2.Margin = new Thickness(0, 10, 0, 0);
 
-			_ok.Width = 70;
+			_ok.Width = Double.NaN;
 			_ok.Height = 30;
 			_ok.Click += ok_Click;
 			_ok.Content = _okbuttontext;
 			_ok.HorizontalAlignment = HorizontalAlignment.Center;
+			_ok.Padding = new Thickness(5);
 			_sp2.Children.Add(_ok);
 
-			_cancel.Width = 70;
+			_cancel.Width = Double.NaN;
 			_cancel.Height = 30;
 			_cancel.Margin = new Thickness(10, 0, 0, 0);
+			_cancel.Padding = new Thickness(5);
 			_cancel.Click += cancel_Click;
 			_cancel.Content = "Cancel";
 			_cancel.HorizontalAlignment = HorizontalAlignment.Center;
