@@ -147,6 +147,9 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Esconder</value>
   </data>
+  <data name="Document.Rename" xml:space="preserve">
+    <value>Renomear</value>
+  </data>
   <data name="Document_Close" xml:space="preserve">
     <value>Fechar</value>
   </data>

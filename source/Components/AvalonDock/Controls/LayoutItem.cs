@@ -1,4 +1,4 @@
-﻿/************************************************************************
+/************************************************************************
    AvalonDock
 
    Copyright (C) 2007-2013 Xceed Software Inc.
@@ -30,6 +30,7 @@ namespace AvalonDock.Controls
 	{
 		#region fields
 
+		private ICommand _defaultRenameCommand;
 		private ICommand _defaultCloseCommand;
 		private ICommand _defaultFloatCommand;
 		private ICommand _defaultDockAsDocumentCommand;
@@ -275,6 +276,50 @@ namespace AvalonDock.Controls
 		}
 
 		#endregion CanFloat
+
+		#region RenameCommand
+
+		/// <summary><see cref="RenameCommand"/> dependency property.</summary>
+		public static readonly DependencyProperty RenameCommandProperty = DependencyProperty.Register(nameof(RenameCommand), typeof(ICommand), typeof(LayoutItem),
+			new FrameworkPropertyMetadata(null, OnRenameCommandChanged, CoerceRenameCommandValue));
+
+		/// <summary>Gets/sets the command to execute when user click the document close button.</summary>
+		[Bindable(true), Description("Allows the user to rename a tab"), Category("Other")]
+		public ICommand RenameCommand
+		{
+			get => (ICommand)GetValue(RenameCommandProperty);
+			set => SetValue(RenameCommandProperty, value);
+		}
+
+		/// <summary>Handles changes to the <see cref="CloseCommand"/> property.</summary>
+		private static void OnRenameCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((LayoutItem)d).OnRenameCommandChanged(e);
+
+		/// <summary>Provides derived classes an opportunity to handle changes to the <see cref="CloseCommand"/>  property.</summary>
+		protected virtual void OnRenameCommandChanged(DependencyPropertyChangedEventArgs e)
+		{
+		}
+
+		/// <summary>Coerces the <see cref="CloseCommand"/>  value.</summary>
+		private static object CoerceRenameCommandValue(DependencyObject d, object value) => value;
+
+		private bool CanExecuteRenameCommand(object parameter) => true;
+
+		private void ExecuteRenameCommand(object parameter) => Rename();
+
+		private void Rename()
+		{
+			string inputRead = new InputBox("",  20).ShowDialog();
+
+			if (inputRead != "")
+			{
+				this.Title = inputRead;
+			}
+		}
+
+		#endregion RenameCommand
+
+
+
 
 		#region CloseCommand
 
@@ -695,6 +740,7 @@ namespace AvalonDock.Controls
 
 		protected virtual void InitDefaultCommands()
 		{
+			_defaultRenameCommand = new RelayCommand<object>(ExecuteRenameCommand, CanExecuteRenameCommand);
 			_defaultCloseCommand = new RelayCommand<object>(ExecuteCloseCommand, CanExecuteCloseCommand);
 			_defaultFloatCommand = new RelayCommand<object>(ExecuteFloatCommand, CanExecuteFloatCommand);
 			_defaultDockAsDocumentCommand = new RelayCommand<object>(ExecuteDockAsDocumentCommand, CanExecuteDockAsDocumentCommand);
@@ -709,6 +755,8 @@ namespace AvalonDock.Controls
 
 		protected virtual void ClearDefaultBindings()
 		{
+			if(RenameCommand == _defaultRenameCommand)
+				BindingOperations.ClearBinding(this, RenameCommandProperty);
 			if (CloseCommand == _defaultCloseCommand)
 				BindingOperations.ClearBinding(this, CloseCommandProperty);
 			if (FloatCommand == _defaultFloatCommand)
@@ -733,6 +781,8 @@ namespace AvalonDock.Controls
 
 		protected virtual void SetDefaultBindings()
 		{
+			if (RenameCommand == null)
+				RenameCommand = _defaultRenameCommand;
 			if (CloseCommand == null)
 				CloseCommand = _defaultCloseCommand;
 			if (FloatCommand == null)

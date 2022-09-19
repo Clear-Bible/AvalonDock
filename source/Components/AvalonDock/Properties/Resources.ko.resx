@@ -147,6 +147,9 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>숨기기</value>
   </data>
+  <data name="Document.Rename" xml:space="preserve">
+    <value>이름 바꾸기</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>고정 상태 설정/해제</value>
   </data>

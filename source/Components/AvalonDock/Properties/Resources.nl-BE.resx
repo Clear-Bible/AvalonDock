@@ -147,6 +147,9 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Verbergen</value>
   </data>
+  <data name="Document.Rename" xml:space="preserve">
+    <value>Hernoeming</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>Schakel pin</value>
   </data>

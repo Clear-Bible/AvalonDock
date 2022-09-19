@@ -147,6 +147,9 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Amagar</value>
   </data>
+  <data name="Document.Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>Canviar l'estat del pin</value>
   </data>

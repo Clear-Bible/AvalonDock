@@ -147,6 +147,9 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Ukryj</value>
   </data>
+  <data name="Document.Rename" xml:space="preserve">
+    <value>Przemianować</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>Przełącz stan przypięcia</value>
   </data>

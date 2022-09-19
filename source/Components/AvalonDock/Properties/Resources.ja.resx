@@ -147,6 +147,9 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>非表示</value>
   </data>
+  <data name="Document.Rename" xml:space="preserve">
+    <value>名前を変更します</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>ピン ステータスを切り替える</value>
   </data>

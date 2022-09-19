@@ -186,4 +186,7 @@
   <data name="Active_ToolWindows" xml:space="preserve">
     <value>使用中工具視窗</value>
   </data>
+  <data name="Document.Rename" xml:space="preserve">
+    <value>改名</value>
+  </data>
 </root>

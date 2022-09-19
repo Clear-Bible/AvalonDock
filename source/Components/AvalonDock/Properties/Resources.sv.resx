@@ -147,6 +147,9 @@
   <data name="Anchorable_Hide" xml:space="preserve">
     <value>Dölj</value>
   </data>
+  <data name="Document.Rename" xml:space="preserve">
+    <value>Döp om</value>
+  </data>
   <data name="Document_BtnPinned_Hint" xml:space="preserve">
     <value>Toggle Pin status</value>
   </data>
