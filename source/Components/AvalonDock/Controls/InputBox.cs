@@ -74,7 +74,7 @@ namespace AvalonDock.Controls
 			_box.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 			_box.Content = _sp1;
 			_box.Closing += Box_Closing;
-			_box.WindowStyle = WindowStyle.ToolWindow;
+			_box.WindowStyle = WindowStyle.None;
 
 			
 			//TextBlock content = new TextBlock();
