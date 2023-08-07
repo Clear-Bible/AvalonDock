@@ -1,5 +1,7 @@
 using AvalonDock.Properties;
 using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -9,6 +11,11 @@ namespace AvalonDock.Controls
 {
 	public class InputBox
 	{
+		// We need to use unmanaged code
+		[DllImport("user32.dll")]
+		static extern bool GetPhysicalCursorPos(out System.Drawing.Point point);
+
+
 		private Window _box = new Window();//window for the inputbox
 		private int _fontSize = 30;//fontsize for the input
 		private StackPanel _sp1 = new StackPanel();// items container
@@ -68,10 +75,19 @@ namespace AvalonDock.Controls
 
 		private void windowdef()// window building - check only for window size
 		{
+			// get the current mouse position from the system
+			var bRet = GetPhysicalCursorPos(out System.Drawing.Point point);
+
+			//Debug.WriteLine("Physical Mouse Position: " + point.X + "   " + point.Y);
+
+			_box.WindowStartupLocation = WindowStartupLocation.Manual;
+			_box.Left = point.X + 20;
+			_box.Top = point.Y + 20;
+
 			_box.Height = 165;// Box Height
 			_box.Width = 300;// Box Width
 			_box.Title = Resources.Document_Rename;
-			_box.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+			//_box.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 			_box.Content = _sp1;
 			_box.Closing += Box_Closing;
 			_box.WindowStyle = WindowStyle.None;
