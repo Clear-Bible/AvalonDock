@@ -91,6 +91,7 @@ namespace AvalonDock.Controls
 			_box.Content = _sp1;
 			_box.Closing += Box_Closing;
 			_box.WindowStyle = WindowStyle.None;
+			_box.ResizeMode = ResizeMode.NoResize;
 
 			
 			//TextBlock content = new TextBlock();
