@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <RootNamespace>AvalonDock</RootNamespace>
-    <TargetFrameworks>netcoreapp3.0;net6.0-windows;net48</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;net7.0-windows;net48</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>sn.snk</AssemblyOriginatorKeyFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>4.70.8</Version>
-    <AssemblyVersion>4.70.8</AssemblyVersion>
-    <FileVersion>4.70.8</FileVersion>
-    <PackageVersion>4.70.8</PackageVersion>
+    <Version>4.70.9</Version>
+    <AssemblyVersion>4.70.9</AssemblyVersion>
+    <FileVersion>4.70.9</FileVersion>
+    <PackageVersion>4.70.9</PackageVersion>
     <Company>Open Source</Company>
     <Product>Dirkster.AvalonDock</Product>
     <Copyright>2017-2022</Copyright>

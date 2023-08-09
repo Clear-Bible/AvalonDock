@@ -90,7 +90,7 @@ namespace AvalonDock.Controls
 			//_box.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 			_box.Content = _sp1;
 			_box.Closing += Box_Closing;
-			_box.WindowStyle = WindowStyle.None;
+			_box.WindowStyle = WindowStyle.ToolWindow;
 			_box.ResizeMode = ResizeMode.NoResize;
 
 			
@@ -138,8 +138,8 @@ namespace AvalonDock.Controls
 
 		void Box_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			if (!_clicked)
-				e.Cancel = true;
+			//if (!_clicked)
+			//	e.Cancel = true;
 		}
 
 		private void input_MouseDown(object sender, MouseEventArgs e)
