@@ -310,7 +310,7 @@ namespace AvalonDock.Controls
 		{
 			string inputRead = new InputBox(this.Title,  20).ShowDialog();
 
-			if (inputRead != "")
+			if (!string.IsNullOrEmpty(inputRead))
 			{
 				this.Title = inputRead;
 			}
